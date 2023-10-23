@@ -1,0 +1,13 @@
+.iframe {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 300px;
+    /* Adjust the width as needed */
+    height: 100%;
+    /* Adjust the height as needed */
+    margin-left: -183px;
+    /* clipping left side of page */
+    margin-top: -244px;
+    /* clipping top of page */
+}

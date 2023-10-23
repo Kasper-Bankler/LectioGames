@@ -1,0 +1,42 @@
+{
+    "name": "Lectio Games",
+    "description": "Play your favorite games on Lectio",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "options_page": "options.html",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "author": "kasperbankler@gmail.com",
+    "icons": {
+        "16": "/images/icon-16x16.png",
+        "32": "/images/icon-32x32.png",
+        "48": "/images/icon-48x48.png",
+        "128": "/images/icon-128x128.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/images/icon-16x16.png",
+            "32": "/images/icon-32x32.png",
+            "48": "/images/icon-48x48.png",
+            "128": "/images/icon-128x128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "css": [
+                "styles.css"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "https://www.lectio.dk/*"
+            ]
+        }
+    ]
+}
