@@ -1,3 +1,10 @@
+chrome.storage.sync.get(["darkMode"]).then((result) => {
+    if (result.darkMode == true) {
+        console.log("dark mode set to true")
+        document.getElementsByTagName("html")[0].setAttribute("data-bs-theme", "dark");
+    }
+});
+
 document.querySelector('#go-to-options').addEventListener('click', function () {
     if (chrome.runtime.openOptionsPage) {
         chrome.runtime.openOptionsPage();

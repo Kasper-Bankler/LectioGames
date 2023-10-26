@@ -1,10 +1,18 @@
+chrome.storage.sync.get(["darkMode"]).then((result) => {
+    if (result.darkMode == true) {
+        console.log("dark mode set to true")
+        document.getElementsByTagName("html")[0].setAttribute("data-bs-theme", "dark");
+    }
+});
+
 // Saves options to chrome.storage
 const saveOptions = () => {
-    const color = document.getElementById('color').value;
-    const likesColor = document.getElementById('like').checked;
+    window.location.reload(true);
+    const position = document.getElementById('position').value;
+    const darkMode = document.getElementById('darkMode').checked;
 
     chrome.storage.sync.set(
-        { favoriteColor: color, likesColor: likesColor },
+        { position: position, darkMode: darkMode },
         () => {
             // Update status to let user know options were saved.
             const status = document.getElementById('status');
@@ -20,10 +28,10 @@ const saveOptions = () => {
 // stored in chrome.storage.
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { favoriteColor: 'red', likesColor: true },
+        { position: 'right', darkMode: false },
         (items) => {
-            document.getElementById('color').value = items.favoriteColor;
-            document.getElementById('like').checked = items.likesColor;
+            document.getElementById('position').value = items.position;
+            document.getElementById('darkMode').checked = items.darkMode;
         }
     );
 };

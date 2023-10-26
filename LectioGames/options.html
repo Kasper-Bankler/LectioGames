@@ -3,19 +3,22 @@
 
 <head>
     <title>Lectio Games Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <select id="color">
-        <option value="red">red</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
-        <option value="yellow">yellow</option>
+    <h1>Lectio Games Settings</h1>
+
+    <p>Game window position</p>
+    <select id="position">
+        <option value="right">right</option>
+        <option value="left">left</option>
     </select>
 
+    <p>Dark mode</p>
     <label>
-        <input type="checkbox" id="like" />
-        I like colors.
+        <input type="checkbox" id="darkMode" />
     </label>
 
     <div id="status"></div>
