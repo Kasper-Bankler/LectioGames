@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="width: 370px; height: 200px;">
 
 <head>
     <meta charset="UTF-8">
@@ -10,24 +10,28 @@
 </head>
 
 <body>
-    <button type="button" class="btn btn-primary" id="go-to-options"
-        style="margin-left: 250px; margin-top: 0px;">Settings</button>
     <div class="container">
-        <h1 class="display-1">Lectio Games</h1>
+        <div class="row">
+            <div class="col">
+                <h1 class="display-1">Lectio Games</h1>
+            </div>
+        </div>
 
         <table class="table table-borderless">
             <thead>
-                <input type="image" src="/images/slope.png" style="height: 64px;width: 64px;" id="slope" />
-                <input type="image" src="/images/pacman.png" style="height: 64px;width: 64px;" id="pac-man" />
-            </thead>
-            <thead>
-                <th>Game 1</th>
-                <th>Game 2</th>
-                <th>Game 3</th>
-                <th>Game 4</th>
-                <th>Game 5</th>
+                <input type="image" src="/images/slope.png" style="height: 64px; width: 64px; margin-right: 5px;"
+                    id="slope" />
+                <input type="image" src="/images/pacman.png" style="height: 64px; width: 64px; margin-right: 5px;"
+                    id="pac-man" />
+                <input type="image" src="/images/tetris.png" style="height: 64px; width: 64px; margin-right: 8px;"
+                    id="tetris" />
+                <input type="image" src="/images/snake.png" style="height: 64px; width: 64px; margin-right: 8px;"
+                    id="snake" />
+                <input type="image" src="/images/2048.png" style="height: 64px; width: 64px;" id="square" />
             </thead>
         </table>
+        <button type="button" class="btn btn-primary" id="hide" style="margin-left: 250px;">Hide Game</button>
+        <button type="button" class="btn btn-primary" id="go-to-options" style="margin-left: 250px;">Settings</button>
     </div>
 </body>
 <script src="popup.js"></script>

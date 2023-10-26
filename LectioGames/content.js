@@ -10,7 +10,8 @@ chrome.storage.sync.get(["position"]).then((result) => {
     const iframe = Object.assign(document.createElement("iframe"), {
         src: "https://slopegame.online/",
         title: "Game",
-        scrolling: "no"
+        scrolling: "no",
+        id: "iframe"
     });
     iframe.className = frameClassName
 

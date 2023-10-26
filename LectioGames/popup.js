@@ -17,12 +17,28 @@ document.querySelector('#slope').addEventListener('click', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://slopegame.online/' });
     });
-    console.log("changed to slope");
 });
 
 document.querySelector('#pac-man').addEventListener('click', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://www.google.com/logos/2010/pacman10-i.html' });
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://freepacman.org/' });
     });
-    console.log("changed to pac man");
+});
+
+document.querySelector('#tetris').addEventListener('click', function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://www.lumpty.com/amusements/Games/Tetris/tetris.html' });
+    });
+});
+
+document.querySelector('#snake').addEventListener('click', function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://snak.ee/' });
+    });
+});
+
+document.querySelector('#square').addEventListener('click', function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://2048game.com/' });
+    });
 });
