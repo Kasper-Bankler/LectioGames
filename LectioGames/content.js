@@ -23,13 +23,6 @@ chrome.storage.sync.get(["darkMode"]).then((result) => {
 });
 
 
-document.addEventListener('keydown', function (event) {
-    if (event.keyCode == 27) {
-        console.log("esc pressed")
-        iframe.hidden = true
-    }
-});
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'changeIframeSrc') {
         iframe.hidden = false
