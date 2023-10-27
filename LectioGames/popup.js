@@ -26,16 +26,6 @@ async function getCurrentTab() {
 
 
 document.querySelector('#hide').addEventListener('click', async function () {
-    var button = document.getElementById("hide")
-    if (button.innerHTML == "Hide Game") {
-        button.innerHTML = "Show Game"
-    }
-    else {
-        button.innerHTML = "Hide Game"
-    }
-
-
-
     var currentTab = await getCurrentTab();
     chrome.scripting.executeScript({
         target: { tabId: currentTab.id },
@@ -49,6 +39,21 @@ document.querySelector('#hide').addEventListener('click', async function () {
             }
         },
     });
+
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        var button = document.getElementById("hide")
+        if (button.innerHTML == "Hide Game") {
+            button.innerHTML = "Show Game"
+        }
+        else {
+            button.innerHTML = "Hide Game"
+        }
+    }
 });
 
 document.querySelector('#slope').addEventListener('click', function () {
