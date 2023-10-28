@@ -41,7 +41,7 @@ document.querySelector('#hide').addEventListener('click', async function () {
     });
 
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
-        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+        if (window.confirm('Go to Lectio.dk to hide/show your game! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
     }
@@ -56,32 +56,142 @@ document.querySelector('#hide').addEventListener('click', async function () {
     }
 });
 
-document.querySelector('#slope').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://slopegame.online/' });
-    });
+document.querySelector('#slope').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://slopegame.online/' });
+        });
+    }
 });
 
-document.querySelector('#pac-man').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://freepacman.org/' });
-    });
+document.querySelector('#pac-man').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://freepacman.org/' });
+        });
+    }
 });
 
-document.querySelector('#tetris').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://www.lumpty.com/amusements/Games/Tetris/tetris.html' });
-    });
+document.querySelector('#tetris').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://www.lumpty.com/amusements/Games/Tetris/tetris.html' });
+        });
+    }
 });
 
-document.querySelector('#snake').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://snak.ee/' });
-    });
+document.querySelector('#snake').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://snak.ee/' });
+        });
+    }
 });
 
-document.querySelector('#square').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://2048game.com/' });
-    });
+document.querySelector('#square').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://2048game.com/' });
+        });
+    }
+});
+
+document.querySelector('#chess').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://papergames.io/en/chess' });
+        });
+    }
+});
+
+document.querySelector('#tic-tac-toe').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://papergames.io/en/tic-tac-toe/' });
+        });
+    }
+});
+
+document.querySelector('#minesweeper').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://freeminesweeper.org/' });
+        });
+    }
+});
+
+document.querySelector('#flappy-bird').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://flappy-bird.io/' });
+        });
+    }
+});
+
+document.querySelector('#little-alchemy').addEventListener('click', async function () {
+    var currentTab = await getCurrentTab();
+    if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
+        if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
+            window.open('https://www.lectio.dk', '_blank');
+        }
+    }
+    else {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://littlealchemy2.com/' });
+        });
+    }
 });
