@@ -1,6 +1,31 @@
+setButton()
+
+async function setButton() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        var currentTab = tabs[0];
+
+        if (currentTab && currentTab.id) {
+            chrome.scripting.executeScript({
+                target: { tabId: currentTab.id },
+                function: function () {
+                    var iframe = document.getElementById('iframe');
+                    var message = iframe && iframe.hidden == true ? "Show Game" : "Hide Game";
+
+                    chrome.runtime.sendMessage({ action: 'updateButton', message: message });
+                },
+            });
+        }
+    });
+}
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action === 'updateButton') {
+        document.getElementById("hide").innerHTML = request.message;
+    }
+});
+
 chrome.storage.sync.get(["darkMode"]).then((result) => {
     if (result.darkMode == true) {
-        console.log("dark mode set to true")
         document.getElementsByTagName("html")[0].setAttribute("data-bs-theme", "dark");
     }
 });
