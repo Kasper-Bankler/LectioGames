@@ -1,27 +1,20 @@
 .iframe {
     position: fixed;
-    top: 240px;
+    top: 0;
     right: 0;
     width: 300px;
     /* Adjust the width as needed */
-    height: 100%;
-    /* Adjust the height as needed */
-    margin-left: -183px;
-    /* clipping left side of page */
-    margin-top: -244px;
-    /* clipping top of page */
+    height: 100vh;
+    /* 100% of the viewport height */
+
 }
 
 .iframe-left {
     position: fixed;
-    top: 240px;
-    right: 0;
+    top: 0;
+    left: 0;
     width: 300px;
     /* Adjust the width as needed */
-    height: 100%;
-    /* Adjust the height as needed */
-    margin-right: 1500px;
-    /* clipping left side of page */
-    margin-top: -244px;
-    /* clipping top of page */
+    height: 100vh;
+    /* 100% of the viewport height */
 }
