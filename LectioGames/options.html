@@ -8,19 +8,37 @@
 </head>
 
 <body>
-    <h1>Lectio Games Settings</h1>
+    <h1 style="margin-bottom: 50px;">Lectio Games Settings</h1>
 
-    <p>Game window position</p>
-    <select id="position">
-        <option value="right">right</option>
-        <option value="left">left</option>
-    </select>
+    <div class="input-container" style="display: flex; margin-bottom: 20px;">
+        <p style="margin-right: 10px;">Game window position</p>
+        <select id="position">
+            <option value="right">right</option>
+            <option value="left">left</option>
+        </select>
+    </div>
+    <div class="input-container" style="display: flex; margin-bottom: 20px;">
+        <p style="margin-right: 10px;">Default game</p>
+        <select id="default-game">
+            <option value="slope">Slope</option>
+            <option value="pac-man">Pac Man</option>
+            <option value="tetris">Tetris</option>
+            <option value="snake">Snake</option>
+            <option value="2048">2048</option>
+            <option value="chess">Chess</option>
+            <option value="tic-tac-toe">Tic Tac Toe</option>
+            <option value="minesweeper">Minesweeper</option>
+            <option value="flappy-bird">Flappy Bird</option>
+            <option value="little-alchemy">Little Alchemy 2</option>
+        </select>
+    </div>
 
-    <p>Dark mode</p>
-    <label>
-        <input type="checkbox" id="darkMode" />
-    </label>
-
+    <div class="input-container" style="display: flex; margin-bottom: 20px;">
+        <p style="margin-right: 10px;">Dark mode</p>
+        <label>
+            <input type="checkbox" id="darkMode" />
+        </label>
+    </div>
     <div id="status"></div>
     <button id="save">Save</button>
 

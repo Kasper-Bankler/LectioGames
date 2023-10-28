@@ -1,31 +1,49 @@
 var frameClassName = "iframe"
 
-chrome.storage.sync.get(["position"]).then((result) => {
+
+chrome.storage.sync.get(["defaultGame"]).then((result) => {
+    let displayGame = result.defaultGame;
+    let displayGameURL = gameURLs[displayGame] || "";
+});
+
+let gameURLs = {
+    "slope": "https://slopegame.online/",
+    "pac-man": "https://freepacman.org/",
+    "tetris": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
+    "snake": "https://snak.ee/",
+    "square": "https://2048game.com/",
+    "chess": "https://papergames.io/en/chess",
+    "tic-tac-toe": "https://papergames.io/en/tic-tac-toe/",
+    "minesweeper": "https://freeminesweeper.org/",
+    "flappy-bird": "https://flappy-bird.io/",
+    "little-alchemy": "https://littlealchemy2.com/"
+};
+
+
+chrome.storage.sync.get(["defaultGame", "position"], (result) => {
+    let displayGame = result.defaultGame;
+    let displayGameURL = gameURLs[displayGame] || "";
+
     if (result.position == "left") {
-        frameClassName = "iframe-left"
+        frameClassName = "iframe-left";
     }
 
     var body = document.getElementsByClassName("masterbody")[0];
 
     const iframe = Object.assign(document.createElement("iframe"), {
-        src: "https://slopegame.online/",
+        src: displayGameURL,
         title: "Game",
         scrolling: "no",
         id: "iframe"
     });
-    iframe.className = frameClassName
+    iframe.className = frameClassName;
 
     body.appendChild(iframe);
 });
 
-chrome.storage.sync.get(["darkMode"]).then((result) => {
-    console.log("darkMode currently is " + result.darkMode);
-});
-
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'changeIframeSrc') {
-        iframe.hidden = false
+        iframe.hidden = false;
         document.getElementById('iframe').src = request.src;
     }
 });
