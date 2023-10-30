@@ -49,26 +49,49 @@ async function getCurrentTab() {
     return tab;
 }
 
+var showGame;
 
 document.querySelector('#hide').addEventListener('click', async function () {
+    chrome.storage.sync.get(["showGame"]).then((result) => {
+        if (result.showGame == false || result.showGame == undefined) {
+            chrome.storage.sync.set({ showGame: true });
+        }
+        else {
+            chrome.storage.sync.set({ showGame: false });
+        }
+    });
+
+
+
+
+    console.log("clicked")
     var currentTab = await getCurrentTab();
     chrome.scripting.executeScript({
         target: { tabId: currentTab.id },
         function: function () {
+            console.log("function start")
             var iframe = document.getElementById("iframe");
             if (iframe.hidden == false) {
                 iframe.hidden = true;
+                showGame = false
+                console.log("show game set to false")
             }
             else {
                 iframe.hidden = false;
+                showGame = true
+                console.log("show game set to true")
             }
-        },
+            chrome.storage.sync.set({ showGame: showGame });
+        }
     });
 
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Go to Lectio.dk to hide/show your game! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         var button = document.getElementById("hide")
@@ -88,6 +111,9 @@ document.querySelector('#slope').addEventListener('click', async function () {
             window.open('https://www.lectio.dk', '_blank');
         }
     }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
+    }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://slopegame.online/' });
@@ -101,6 +127,9 @@ document.querySelector('#pac-man').addEventListener('click', async function () {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -116,6 +145,9 @@ document.querySelector('#tetris').addEventListener('click', async function () {
             window.open('https://www.lectio.dk', '_blank');
         }
     }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
+    }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://www.lumpty.com/amusements/Games/Tetris/tetris.html' });
@@ -129,6 +161,9 @@ document.querySelector('#snake').addEventListener('click', async function () {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -144,6 +179,9 @@ document.querySelector('#square').addEventListener('click', async function () {
             window.open('https://www.lectio.dk', '_blank');
         }
     }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
+    }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://2048game.com/' });
@@ -157,6 +195,9 @@ document.querySelector('#chess').addEventListener('click', async function () {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -172,6 +213,9 @@ document.querySelector('#tic-tac-toe').addEventListener('click', async function 
             window.open('https://www.lectio.dk', '_blank');
         }
     }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
+    }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://papergames.io/en/tic-tac-toe/' });
@@ -185,6 +229,9 @@ document.querySelector('#minesweeper').addEventListener('click', async function 
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -200,6 +247,9 @@ document.querySelector('#flappy-bird').addEventListener('click', async function 
             window.open('https://www.lectio.dk', '_blank');
         }
     }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
+    }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://flappy-bird.io/' });
@@ -213,6 +263,9 @@ document.querySelector('#little-alchemy').addEventListener('click', async functi
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
             window.open('https://www.lectio.dk', '_blank');
         }
+    }
+    else if (/^https:\/\/www\.lectio\.dk\//.test(currentTab.url) && currentTab.url.length < 25) {
+        alert("Please log in first")
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
