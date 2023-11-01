@@ -20,7 +20,7 @@ let gameURLs = {
 
 chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     let displayGame = result.defaultGame;
-    let displayGameURL = gameURLs[displayGame] || "";
+    let displayGameURL = gameURLs[displayGame] || "https://slopegame.online/";
 
     if (result.position == "left") {
         frameClassName = "iframe-left";
