@@ -38,7 +38,7 @@ const saveOptions = () => {
 // stored in chrome.storage.
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { panicButton: 'left-click', position: 'right', defaultGame: 'slope', size: 'medium', darkMode: false },
+        { panicButton: 'escape', position: 'right', defaultGame: 'slope', size: 'medium', darkMode: false },
         (items) => {
             document.getElementById('panic-button').value = items.panicButton;
             document.getElementById('position').value = items.position;
