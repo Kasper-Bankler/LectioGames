@@ -104,6 +104,8 @@ document.querySelector('#hide').addEventListener('click', async function () {
 });
 
 document.querySelector('#slope').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -121,6 +123,8 @@ document.querySelector('#slope').addEventListener('click', async function () {
 });
 
 document.querySelector('#pac-man').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -138,6 +142,8 @@ document.querySelector('#pac-man').addEventListener('click', async function () {
 });
 
 document.querySelector('#tetris').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -155,6 +161,8 @@ document.querySelector('#tetris').addEventListener('click', async function () {
 });
 
 document.querySelector('#snake').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -172,6 +180,8 @@ document.querySelector('#snake').addEventListener('click', async function () {
 });
 
 document.querySelector('#square').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -189,6 +199,8 @@ document.querySelector('#square').addEventListener('click', async function () {
 });
 
 document.querySelector('#chess').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -206,6 +218,8 @@ document.querySelector('#chess').addEventListener('click', async function () {
 });
 
 document.querySelector('#tic-tac-toe').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -223,6 +237,8 @@ document.querySelector('#tic-tac-toe').addEventListener('click', async function 
 });
 
 document.querySelector('#minesweeper').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -240,6 +256,8 @@ document.querySelector('#minesweeper').addEventListener('click', async function 
 });
 
 document.querySelector('#flappy-bird').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
@@ -257,6 +275,8 @@ document.querySelector('#flappy-bird').addEventListener('click', async function 
 });
 
 document.querySelector('#little-alchemy').addEventListener('click', async function () {
+    document.getElementById("hide").innerHTML = "Hide Game"
+    chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Log in to Lectio.dk to play your favorite games! Click OK to visit Lectio.dk.')) {
