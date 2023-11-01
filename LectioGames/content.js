@@ -81,7 +81,7 @@ document.addEventListener('click', function (event) {
 
 document.addEventListener('keydown', function (event) {
     if (document.getElementById("iframe").hidden == false) {
-        chrome.storage.sync.get(["panicButton" : "escape"]).then((result) => {
+        chrome.storage.sync.get({ "panicButton": "escape" }).then((result) => {
             if (result.panicButton == "escape" && event.keyCode === 27) {
                 document.getElementById("iframe").hidden = true;
                 chrome.storage.sync.set({ showGame: false });
