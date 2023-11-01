@@ -117,7 +117,7 @@ document.querySelector('#slope').addEventListener('click', async function () {
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://kbhgames.com/game/slope-game' });
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://slopeio2.com/' });
         });
     }
 });
@@ -136,7 +136,7 @@ document.querySelector('#pac-man').addEventListener('click', async function () {
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://freepacman.org/' });
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://pacmanabc.com/play-pacman-mspacman-cookieman/' });
         });
     }
 });

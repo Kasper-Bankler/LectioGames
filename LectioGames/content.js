@@ -1,8 +1,8 @@
 var frameClassName = "iframe"
 
 let gameURLs = {
-    "slope": "https://kbhgames.com/game/slope-game",
-    "pac-man": "https://freepacman.org/",
+    "slope": "https://slopeio2.com/",
+    "pac-man": "https://pacmanabc.com/play-pacman-mspacman-cookieman/",
     "tetris": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
     "snake": "https://snak.ee/",
     "square": "https://2048game.com/",
@@ -15,7 +15,7 @@ let gameURLs = {
 
 chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     let displayGame = result.defaultGame;
-    let displayGameURL = gameURLs[displayGame] || "https://kbhgames.com/game/slope-game";
+    let displayGameURL = gameURLs[displayGame] || "https://slopeio2.com/";
 
     if (result.position == "left") {
         frameClassName = "iframe-left";
