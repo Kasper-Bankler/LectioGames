@@ -15,13 +15,14 @@ const saveOptions = () => {
         });
     });
     window.location.reload(true);
+    const panicButton = document.getElementById('panic-button').value;
     const position = document.getElementById('position').value;
     const darkMode = document.getElementById('darkMode').checked;
     const defaultGame = document.getElementById('default-game').value
     const size = document.getElementById('size').value
 
     chrome.storage.sync.set(
-        { position: position, defaultGame: defaultGame, size: size, darkMode: darkMode },
+        { panicButton: panicButton, position: position, defaultGame: defaultGame, size: size, darkMode: darkMode },
         () => {
             // Update status to let user know options were saved.
             const status = document.getElementById('status');
@@ -37,8 +38,9 @@ const saveOptions = () => {
 // stored in chrome.storage.
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { position: 'right', defaultGame: 'slope', size: 'medium', darkMode: false },
+        { panicButton: 'left-click', position: 'right', defaultGame: 'slope', size: 'medium', darkMode: false },
         (items) => {
+            document.getElementById('panic-button').value = items.panicButton;
             document.getElementById('position').value = items.position;
             document.getElementById('darkMode').checked = items.darkMode;
             document.getElementById('default-game').value = items.defaultGame;

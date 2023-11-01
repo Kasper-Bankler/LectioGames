@@ -46,16 +46,12 @@ chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     else {
         iframe.width = "400px"
     }
-
-
-
     body.appendChild(iframe);
 });
 
 var showIframe;
 
 chrome.storage.sync.get(["showGame"]).then((result) => {
-    console.log(result.showGame)
     if (result.showGame == true || result.showGame == undefined) {
         showIframe = true;
     }
@@ -72,5 +68,37 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'changeIframeSrc') {
         iframe.hidden = false;
         document.getElementById('iframe').src = request.src;
+    }
+});
+
+
+
+
+
+document.addEventListener('click', function (event) {
+    if (document.getElementById("iframe").hidden == false) {
+        chrome.storage.sync.get(["panicButton"]).then((result) => {
+            if (result.panicButton == "left-click" && event.button === 0) {
+                document.getElementById("iframe").hidden = true;
+                chrome.storage.sync.set({ showGame: false });
+            }
+        });
+
+    }
+});
+
+document.addEventListener('keydown', function (event) {
+    if (document.getElementById("iframe").hidden == false) {
+        chrome.storage.sync.get(["panicButton"]).then((result) => {
+            if (result.panicButton == "escape" && event.keyCode === 27) {
+                document.getElementById("iframe").hidden = true;
+                chrome.storage.sync.set({ showGame: false });
+            }
+            else if (result.panicButton == "space" && event.keyCode === 32) {
+                document.getElementById("iframe").hidden = true;
+                chrome.storage.sync.set({ showGame: false });
+            }
+        });
+
     }
 });
