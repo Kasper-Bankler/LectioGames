@@ -18,7 +18,7 @@ let gameURLs = {
     "little-alchemy": "https://littlealchemy2.com/"
 };
 
-chrome.storage.sync.get(["defaultGame", "position"], (result) => {
+chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     let displayGame = result.defaultGame;
     let displayGameURL = gameURLs[displayGame] || "";
 
@@ -37,6 +37,18 @@ chrome.storage.sync.get(["defaultGame", "position"], (result) => {
     });
     iframe.className = frameClassName;
 
+    if (result.size == "small") {
+        iframe.width = "300px"
+    }
+    else if (result.size == "large") {
+        iframe.width = "500px"
+    }
+    else {
+        iframe.width = "400px"
+    }
+
+
+
     body.appendChild(iframe);
 });
 
@@ -54,8 +66,6 @@ chrome.storage.sync.get(["showGame"]).then((result) => {
         document.getElementById("iframe").hidden = false;
     }
 });
-
-
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {

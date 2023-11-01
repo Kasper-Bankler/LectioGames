@@ -10,9 +10,10 @@ const saveOptions = () => {
     const position = document.getElementById('position').value;
     const darkMode = document.getElementById('darkMode').checked;
     const defaultGame = document.getElementById('default-game').value
+    const size = document.getElementById('size').value
 
     chrome.storage.sync.set(
-        { position: position, defaultGame: defaultGame, darkMode: darkMode },
+        { position: position, defaultGame: defaultGame, size: size, darkMode: darkMode },
         () => {
             // Update status to let user know options were saved.
             const status = document.getElementById('status');
@@ -28,11 +29,12 @@ const saveOptions = () => {
 // stored in chrome.storage.
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { position: 'right', defaultGame: 'slope', darkMode: false },
+        { position: 'right', defaultGame: 'slope', size: 'medium', darkMode: false },
         (items) => {
             document.getElementById('position').value = items.position;
             document.getElementById('darkMode').checked = items.darkMode;
             document.getElementById('default-game').value = items.defaultGame;
+            document.getElementById('size').value = items.size;
         }
     );
 };
