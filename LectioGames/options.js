@@ -6,6 +6,14 @@ chrome.storage.sync.get(["darkMode"]).then((result) => {
 
 // Saves options to chrome.storage
 const saveOptions = () => {
+    chrome.tabs.query({ currentWindow: true }, function (tabs) {
+        var targetUrl = "https://www.lectio.dk/";
+        tabs.forEach(function (tab) {
+            if (tab.url.startsWith(targetUrl)) {
+                chrome.tabs.reload(tab.id);
+            }
+        });
+    });
     window.location.reload(true);
     const position = document.getElementById('position').value;
     const darkMode = document.getElementById('darkMode').checked;
