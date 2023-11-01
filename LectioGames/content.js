@@ -18,7 +18,29 @@ let gameURLs = {
     "little-alchemy": "https://littlealchemy2.com/"
 };
 
-var showIframe = true;
+chrome.storage.sync.get(["defaultGame", "position"], (result) => {
+    let displayGame = result.defaultGame;
+    let displayGameURL = gameURLs[displayGame] || "";
+
+    if (result.position == "left") {
+        frameClassName = "iframe-left";
+    }
+
+    var body = document.getElementsByClassName("masterbody")[0];
+
+    const iframe = Object.assign(document.createElement("iframe"), {
+        src: displayGameURL,
+        title: "Game",
+        scrolling: "no",
+        id: "iframe",
+        hidden: true
+    });
+    iframe.className = frameClassName;
+
+    body.appendChild(iframe);
+});
+
+var showIframe;
 
 chrome.storage.sync.get(["showGame"]).then((result) => {
     console.log(result.showGame)
@@ -28,30 +50,12 @@ chrome.storage.sync.get(["showGame"]).then((result) => {
     else {
         showIframe = false;
     }
+    if (showIframe == true) {
+        document.getElementById("iframe").hidden = false;
+    }
 });
 
-if (showIframe) {
-    chrome.storage.sync.get(["defaultGame", "position"], (result) => {
-        let displayGame = result.defaultGame;
-        let displayGameURL = gameURLs[displayGame] || "";
 
-        if (result.position == "left") {
-            frameClassName = "iframe-left";
-        }
-
-        var body = document.getElementsByClassName("masterbody")[0];
-
-        const iframe = Object.assign(document.createElement("iframe"), {
-            src: displayGameURL,
-            title: "Game",
-            scrolling: "no",
-            id: "iframe"
-        });
-        iframe.className = frameClassName;
-
-        body.appendChild(iframe);
-    });
-}
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {

@@ -53,35 +53,34 @@ var showGame;
 
 document.querySelector('#hide').addEventListener('click', async function () {
     chrome.storage.sync.get(["showGame"]).then((result) => {
+        console.log("before: " + result.showGame)
+
         if (result.showGame == false || result.showGame == undefined) {
-            chrome.storage.sync.set({ showGame: true });
+            showGame = true
+            chrome.storage.sync.set({ showGame: showGame });
+            console.log("show game set to true")
         }
         else {
-            chrome.storage.sync.set({ showGame: false });
+            showGame = false
+            chrome.storage.sync.set({ showGame: showGame });
+            console.log("show game set to false")
         }
     });
 
-
-
-
-    console.log("clicked")
     var currentTab = await getCurrentTab();
     chrome.scripting.executeScript({
         target: { tabId: currentTab.id },
         function: function () {
-            console.log("function start")
+
             var iframe = document.getElementById("iframe");
             if (iframe.hidden == false) {
                 iframe.hidden = true;
-                showGame = false
-                console.log("show game set to false")
             }
             else {
                 iframe.hidden = false;
-                showGame = true
-                console.log("show game set to true")
+
             }
-            chrome.storage.sync.set({ showGame: showGame });
+
         }
     });
 
