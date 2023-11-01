@@ -3,8 +3,6 @@
     top: 0;
     right: 0;
     height: 100vh;
-    /* 100% of the viewport height */
-
 }
 
 .iframe-left {
@@ -12,5 +10,4 @@
     top: 0;
     left: 0;
     height: 100vh;
-    /* 100% of the viewport height */
 }

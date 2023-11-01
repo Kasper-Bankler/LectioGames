@@ -1,12 +1,7 @@
 var frameClassName = "iframe"
 
-chrome.storage.sync.get(["defaultGame"]).then((result) => {
-    let displayGame = result.defaultGame;
-    let displayGameURL = gameURLs[displayGame] || "";
-});
-
 let gameURLs = {
-    "slope": "https://slopegame.online/",
+    "slope": "https://kbhgames.com/game/slope-game",
     "pac-man": "https://freepacman.org/",
     "tetris": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
     "snake": "https://snak.ee/",
@@ -20,7 +15,7 @@ let gameURLs = {
 
 chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     let displayGame = result.defaultGame;
-    let displayGameURL = gameURLs[displayGame] || "https://slopegame.online/";
+    let displayGameURL = gameURLs[displayGame] || "https://kbhgames.com/game/slope-game";
 
     if (result.position == "left") {
         frameClassName = "iframe-left";
@@ -70,9 +65,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         document.getElementById('iframe').src = request.src;
     }
 });
-
-
-
 
 
 document.addEventListener('click', function (event) {
