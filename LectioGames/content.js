@@ -7,7 +7,7 @@ let gameURLs = {
     "snake": "https://snak.ee/",
     "square": "https://2048game.com/",
     "chess": "https://papergames.io/en/chess",
-    "tic-tac-toe": "https://papergames.io/en/tic-tac-toe/",
+    "subway-surfers": "https://subway-surfers.org/berlin/",
     "minesweeper": "https://freeminesweeper.org/",
     "flappy-bird": "https://flappy-bird.io/",
     "little-alchemy": "https://littlealchemy2.com/"
@@ -31,6 +31,7 @@ chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
         hidden: true
     });
     iframe.className = frameClassName;
+    iframe.muted = true;
 
     if (result.size == "small") {
         iframe.width = "300px"

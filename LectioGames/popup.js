@@ -217,7 +217,7 @@ document.querySelector('#chess').addEventListener('click', async function () {
     }
 });
 
-document.querySelector('#tic-tac-toe').addEventListener('click', async function () {
+document.querySelector('#subway-surfers').addEventListener('click', async function () {
     document.getElementById("hide").innerHTML = "Hide Game"
     chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
@@ -231,7 +231,7 @@ document.querySelector('#tic-tac-toe').addEventListener('click', async function 
     }
     else {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://papergames.io/en/tic-tac-toe/' });
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'changeIframeSrc', src: 'https://subway-surfers.org/berlin/' });
         });
     }
 });
