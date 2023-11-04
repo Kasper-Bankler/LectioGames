@@ -39,7 +39,7 @@ document.querySelector('#go-to-options').addEventListener('click', function () {
 });
 
 document.querySelector('#github').addEventListener('click', function () {
-    chrome.tabs.create({ url: "https://github.com/Kasper-Bankler" });
+    chrome.tabs.create({ url: "https://github.com/Kasper-Bankler/LectioGames" });
 });
 
 
