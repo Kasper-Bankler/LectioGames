@@ -1,7 +1,7 @@
 {
     "name": "Lectio Games",
     "description": "Play your favorite games on Lectio.dk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "manifest_version": 3,
     "options_page": "options.html",
     "permissions": [
