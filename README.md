@@ -15,5 +15,5 @@ Dark Mode: Immerse yourself in a sleek and stylish dark mode while enjoying your
 
 Revolutionize your study breaks with Lectio Games —where productivity meets gaming, and the many settings ensure you're always in control. Download now and level up your "lectio.dk" experience!
 
-# Status
-Pending review from Chrome...
+# Link to Chrome Webshop
+[Lectio Games](https://chrome.google.com/webstore/detail/lectio-games/fenjkmbejlhlkhcigaaamnhpnfnhcmbc)https://chrome.google.com/webstore/detail/lectio-games/fenjkmbejlhlkhcigaaamnhpnfnhcmbc
