@@ -1,4 +1,6 @@
 var frameClassName = "iframe"
+var showIframe;
+
 
 let gameURLs = {
     "slope": "https://slopeio2.com/",
@@ -45,8 +47,6 @@ chrome.storage.sync.get(["defaultGame", "position", "size"], (result) => {
     body.appendChild(iframe);
 });
 
-var showIframe;
-
 chrome.storage.sync.get(["showGame"]).then((result) => {
     if (result.showGame == true || result.showGame == undefined) {
         showIframe = true;
@@ -59,14 +59,12 @@ chrome.storage.sync.get(["showGame"]).then((result) => {
     }
 });
 
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'changeIframeSrc') {
         iframe.hidden = false;
         document.getElementById('iframe').src = request.src;
     }
 });
-
 
 document.addEventListener('click', function (event) {
     if (document.getElementById("iframe").hidden == false) {
