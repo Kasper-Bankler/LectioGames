@@ -21,6 +21,7 @@ async function setButton() {
 
 async function updateIframeSrc(src) {
     document.getElementById("hide").innerHTML = "Hide Game"
+    setMuteState(false);
     chrome.storage.sync.set({ showGame: true });
     var currentTab = await getCurrentTab();
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
@@ -42,6 +43,12 @@ async function getCurrentTab() {
     let queryOptions = { active: true, lastFocusedWindow: true };
     let [tab] = await chrome.tabs.query(queryOptions);
     return tab;
+}
+
+async function setMuteState(isMuted) {
+    const tab = await getCurrentTab();
+    await chrome.tabs.update(tab.id, { muted: isMuted });
+    console.log(`Tab ${tab.id} is ${isMuted ? "muted" : "unmuted"}`);
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -100,12 +107,6 @@ document.querySelector('#hide').addEventListener('click', async function () {
             }
         }
     });
-
-    async function setMuteState(isMuted) {
-        const tab = await getCurrentTab();
-        await chrome.tabs.update(tab.id, { muted: isMuted });
-        console.log(`Tab ${tab.id} is ${isMuted ? "muted" : "unmuted"}`);
-    }
 
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Go to Lectio.dk to hide/show your game! Click OK to visit Lectio.dk.')) {
