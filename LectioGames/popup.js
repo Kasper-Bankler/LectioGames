@@ -70,17 +70,16 @@ document.querySelector('#github').addEventListener('click', function () {
 
 document.querySelector('#hide').addEventListener('click', async function () {
     chrome.storage.sync.get(["showGame"]).then((result) => {
-        console.log("before: " + result.showGame)
 
         if (result.showGame == false || result.showGame == undefined) {
             showGame = true
             chrome.storage.sync.set({ showGame: showGame });
-            console.log("show game set to true")
+            setMuteState(false);
         }
         else {
             showGame = false
             chrome.storage.sync.set({ showGame: showGame });
-            console.log("show game set to false")
+            setMuteState(true);
         }
     });
 
@@ -92,14 +91,21 @@ document.querySelector('#hide').addEventListener('click', async function () {
             var iframe = document.getElementById("iframe");
             if (iframe.hidden == false) {
                 iframe.hidden = true;
+
             }
             else {
                 iframe.hidden = false;
 
-            }
 
+            }
         }
     });
+
+    async function setMuteState(isMuted) {
+        const tab = await getCurrentTab();
+        await chrome.tabs.update(tab.id, { muted: isMuted });
+        console.log(`Tab ${tab.id} is ${isMuted ? "muted" : "unmuted"}`);
+    }
 
     if (!/^https:\/\/www\.lectio\.dk\//.test(currentTab.url)) {
         if (window.confirm('Go to Lectio.dk to hide/show your game! Click OK to visit Lectio.dk.')) {
