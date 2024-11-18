@@ -1,4 +1,7 @@
 # Lectio Games Description
+> [!CAUTION]
+> This extension is outdated, and some features may no longer function properly!
+
 Introducing Lectio Games, the Chrome extension that effortlessly combines study and gaming on lectio.dk"! Immerse yourself in a world of gaming without losing sight of your academic goals, thanks to the unique overlay design. 
 
 Key Features:
